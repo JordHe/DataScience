@@ -1,0 +1,27 @@
+**************
+Data Wrangling
+**************
+
+## Treat Outliers Using IQR
+
+treat_cols = [] #List of columns to be treated
+
+def upper_lower(col): # Function to define upper and lower IQR
+    sorted(col)
+    Q1,Q3 = np.percentile(col , [25,75])
+    IQR = Q3 - Q1
+    lower_range = Q1 - (1.5 * IQR)
+    upper_range = Q3 + (1.5 * IQR)
+    return lower_range,upper_range
+
+def outlier_treatment(cols): # Function to treat outliers, making all outlier values equal to 1.5 * IQR
+    for col in cols:
+        # print(df[col]) # Uncomment to debug 
+        lower_range,upper_range = upper_lower(df[col])
+        #print(col, "Lower Range:",lower_range) # Uncomment to debug 
+        #print(col, "Upper Range:",upper_range) # Uncomment to debug 
+        df[col] = df[col].apply(lambda x: x if x <= upper_range else upper_range)
+        df[col] = df[col].apply(lambda x: x if x >= lower_range else lower_range)
+
+outlier_treatment(treat_cols) # Process outlier treatment on list of treat_cols columns
+
