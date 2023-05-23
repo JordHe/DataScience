@@ -59,3 +59,9 @@ for i in range(0, len(column_list), 4):
     plt.show()
     
 --------------
+
+# Histogram comparing continuous variable and binary categorical variable
+
+sns.histplot(x='age', hue='target', data=df, bins=15)
+plt.title('Continuous Variable Compared To Categorical Variable')
+plt.show()
