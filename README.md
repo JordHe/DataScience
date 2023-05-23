@@ -1,2 +1,2 @@
 # DataScience
-Reference to frequently used code segments for statistical analysis and EDA
+Reference of frequently used code segments for statistical analysis, data wrangling, and EDA
