@@ -1,0 +1,61 @@
+# Frequently used code for EDA
+
+****************
+Visualizing Data
+****************
+
+# Visualize Numerical Variables Using A Boxplot
+# 3 plots per row
+
+column_list = list(df.columns)
+
+for i in range(0, len(column_list), 3):
+    plt.figure(figsize=(12,3))
+    plt.subplot(131)
+    sns.boxplot(x=df[column_list[i]])
+    plt.subplot(132)
+    sns.boxplot(x=df[column_list[i+1]])
+    plt.subplot(133)
+    sns.boxplot(x=df[column_list[i+2]])
+    plt.tight_layout()
+    plt.show()
+
+--------------
+
+# Visualize Numerical Variable Using A Histogram w/ KDE
+# 3 plots per row
+
+column_list = list(df.columns)
+
+for i in range(0, len(column_list), 3):
+    plt.figure(figsize=(10,3))
+    plt.subplot(131)
+    sns.histplot(x=df[column_list[i]], kde=True)
+    plt.subplot(132)
+    sns.histplot(x=df[column_list[i+1]], kde=True)
+    plt.subplot(133)
+    sns.histplot(x=df[column_list[i+2]], kde=True)
+    #plt.tight_layout()
+    plt.show()
+    
+--------------
+
+# Visualize Numerical Variable Using A Histogram w/ KDE
+# 4 plots per row
+
+column_list = []
+
+for i in range(0, len(column_list), 4):
+    plt.figure(figsize=(12,3))
+    plt.subplot(141)
+    sns.countplot(x=column_list[i], data=df)
+    plt.subplot(142)
+    sns.countplot(x=column_list[i+1], data=df)
+    plt.subplot(143)
+    sns.countplot(x=column_list[i+2], data=df)
+    plt.subplot(144)
+    sns.countplot(x=column_list[i+3], data=df)
+    plt.tight_layout()
+    plt.show()
+    
+--------------
